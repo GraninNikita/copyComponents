@@ -16,9 +16,12 @@ Usually it is an incorrect tag (`no such tag`)
 
 
 ### How to start?
+Place to the `data` folder all version files.</br>
+
 Launch `start.bat` from the command line with arguments:
 1. Destination location, e.g. `"E:\Checkout"`
 2. Data location, e.g. `"E:\copyComponents\data"`
+3. Input file name (default - `input.txt`)
 
 ### Input
 Data folder should have the `input.txt` file which contains the information about CVS tags to check out.<br />

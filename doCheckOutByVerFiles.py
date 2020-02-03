@@ -5,9 +5,11 @@ import sys
 destination = sys.argv[1] if len(sys.argv) > 1 else "./"
 
 dataLocation = sys.argv[2] if len(sys.argv) > 1 else "./data/"
+
+inputFile = sys.argv[3] if len(sys.argv) > 1 else "input.txt/"
 errorsList = []
 
-f = open(dataLocation + '/input.txt')
+f = open(dataLocation + '/' + inputFile)
 for line in f:
     lineArray = line.split(" ")
     componentName = lineArray[0]

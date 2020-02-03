@@ -1,0 +1,3 @@
+TClient2 TClient2 RST#TClient#core#REL-4-41-18
+Tcpack com_code_sp/tcpack RST#SrvMngr#Core#CCSP-441-18
+globalFraudSignatureWS WebServices/GlobalFraud RST#Webservice#Core#WS-44-0-3
