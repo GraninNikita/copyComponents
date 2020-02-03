@@ -1,13 +1,13 @@
-import os
+# This program will pull the sources from the CVS according to the Input file
 from subprocess import PIPE, Popen
+import sys
 
-description = "This program will pull the sources by the information from the Input file"
-print(description)
+destination = sys.argv[1] if len(sys.argv) > 1 else "./"
 
-destination = input("Please input the destination path to save the sources (default: current folder)")
-if not destination: destination = "."
+dataLocation = sys.argv[2] if len(sys.argv) > 1 else "./data/"
+errorsList = []
 
-f = open('data/input.txt')
+f = open(dataLocation + '/input.txt')
 for line in f:
     lineArray = line.split(" ")
     componentName = lineArray[0]
@@ -15,12 +15,20 @@ for line in f:
     cvsTag = lineArray[2].rstrip()
     cvsCommand = 'cvs -Q checkout -P -d %(destination)s/%(componentName)s -r %(cvsTag)s dev/%(componentPath)s' % {'destination': destination, 'componentName': componentName, 'cvsTag': cvsTag,
                                                                                                                   'componentPath': componentPath}
-    print('Running : ' + cvsCommand)
+    print('Running : ' + cvsCommand + "\n")
+    sys.stdout.flush()
 
     p = Popen(cvsCommand, shell=True, stdout=PIPE, stderr=PIPE)
     stdout, stderr = p.communicate()
+    # if there are no errors
     if stderr == b'':
-        print(componentPath + " repository was successfully checked out!")
+        print(componentPath + " repository was successfully checked out!\n")
+        sys.stdout.flush()
     else:
-        print(componentPath + " repository check out contains some errors : ")
-        print(stderr)
+        print(componentPath + " : repository was checked out with errors!\n")
+        errorsList.append(stderr)
+        errorsList.append("\n")
+
+print("Errors: \n")
+for line in errorsList:
+    print(line)

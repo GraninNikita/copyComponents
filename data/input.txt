@@ -1,4 +1,4 @@
-AdminClient adminssclient RST#adminclient#core#4-4-82
+AdminClient adminclient RST#adminclient#core#4-4-82
 AttachManager com_code_sp/AttachManager5 RST#SrvMngr#Core#CCSP-441-18
 LiveInfo com_code_sp/LiveInfo RST#SrvMngr#Core#CCSP-441-18
 ArchiveServer Archive RST#AIS#CORE#REL4-41-0
